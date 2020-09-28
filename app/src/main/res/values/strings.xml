@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Azur Lane Info</string>
+    <string name="update_button">Update Database</string>
+    <string name="ship_name">Ship Name</string>
+</resources>

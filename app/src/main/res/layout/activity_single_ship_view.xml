@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nameView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SingleShipView">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/shipName"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="@string/ship_name" />
+            <TextView
+                android:id="@+id/factionName"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textStyle="italic"
+                android:text="@string/ship_name" />
+            <TextView
+                android:id="@+id/hullType"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textStyle="italic"
+                android:text="@string/ship_name" />
+
+            <ImageView
+                android:id="@+id/shipImg"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:gravity="center"
+                android:contentDescription="TODO" />
+
+            <TextView
+                android:id="@+id/health"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:text="@string/ship_name" />
+
+            <com.github.mikephil.charting.charts.HorizontalBarChart
+                android:id="@+id/barStats"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+            />
+
+            <ListView
+                android:id="@+id/skillView"
+                android:layout_width="match_parent"
+                android:layout_height="600dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="1dp" />
+
+            <ListView
+                android:id="@+id/skinView"
+                android:layout_width="match_parent"
+                android:layout_height="2000dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="1dp" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
