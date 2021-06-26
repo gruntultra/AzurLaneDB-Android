@@ -2,6 +2,7 @@ package com.gruntultra.azurlaneinfo;
 
 
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,13 +15,17 @@ import androidx.annotation.Nullable;
 
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
+import java.util.ArrayList;
+
 public class ShipAdapter extends ArrayAdapter {
     private static final String TAG = "ShipAdapter";
     private Context mContext;
-    private Ship[] mShips;
+    private ArrayList<Ship> mShips;
     private int mResource;
+    private int counter = 0;
 
-    public ShipAdapter(@NonNull Context context, int resource, Ship[] ships) {
+    public ShipAdapter(@NonNull Context context, int resource, ArrayList<Ship> ships) {
         super(context, resource, ships);
         mContext = context;
         mShips = ships;
@@ -43,13 +48,22 @@ public class ShipAdapter extends ArrayAdapter {
 
         tv1.setText(name);
         tv2.setText(desc);
-        Picasso.get().load(imageUrl).into(im1);
+
+        ContextWrapper cw = new ContextWrapper(getContext());
+        File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+        File myImageFile = new File(directory, name + ".png");
+        Picasso.get().load(myImageFile).into(im1);
+
+        //Picasso.get().load(imageUrl).into(im1);
+
+
         return convertView;
     }
+
 
     @Nullable
     @Override
     public Ship getItem(int position) {
-        return mShips[position];
+        return mShips.get(position);
     }
 }

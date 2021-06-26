@@ -2,8 +2,6 @@ package com.gruntultra.azurlaneinfo;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.preference.PreferenceManager;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.File;

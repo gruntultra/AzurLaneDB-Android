@@ -18,7 +18,7 @@ public class Ship implements Serializable {
     private String thumbnail;
     private Stars stars;
     private Stats stats;
-    private Slots slots;
+    private ArrayList<Slots> slots;
     private Object enhanceValue;
     private Object scrapValue;
     private ArrayList<Skills> skills;
@@ -35,7 +35,7 @@ public class Ship implements Serializable {
 
 
     public Ship(String wikiUrl, String id, Names names, String mClass, String nationality,
-                String hullType, String thumbnail, Stars stars, Stats stats, Slots slots,
+                String hullType, String thumbnail, Stars stars, Stats stats, ArrayList<Slots> slots,
                 Object enhanceValue, Object scrapValue, ArrayList<Skills> skills, ArrayList<Skins> skins,
                 ArrayList<GalleryItem> gallery, ArrayList<ArrayList<String>> limitBreaks, FleetTech fleetTech, boolean retrofit,
                 String retrofitId, RetrofitProjects retrofitProjects, Construction construction,
@@ -218,13 +218,13 @@ class StatsV implements Serializable {
     private String antisubmarineWarfare;
     private String oxygen;
     private String ammunition;
-    private String[][] huntingRange;
+    private String huntingRange;
 
     public StatsV(String health, String armor, String reload, String luck, String firepower,
                   String torpedo, String evasion, String speed, String antiair,
                   String aviation, String oilConsumption, String accuracy,
                   String antisubmarineWarfare, String oxygen, String ammunition,
-                  String[][] huntingRange) {
+                  String huntingRange) {
         this.health = health;
         this.armor = armor;
         this.reload = reload;
@@ -288,12 +288,12 @@ class StatsV implements Serializable {
     public String getAmmunition() {
         return ammunition;
     }
-    public String[][] getHuntingRange() {
+    public String getHuntingRange() {
         return huntingRange;
     }
 }
 
-class Slots implements Serializable {
+/*class Slots implements Serializable {
     private SlotsI first;
     private SlotsI second;
     private SlotsI third;
@@ -313,15 +313,17 @@ class Slots implements Serializable {
     public SlotsI getThird() {
         return third;
     }
-}
+}*/
 
-class SlotsI implements Serializable {
+class Slots implements Serializable {
     private String type;
     private int minEfficiency;
     private int maxEfficiency;
+    private int max;
 
-    public SlotsI(String type, int minEfficiency, int maxEfficiency) {
+    public Slots(String type, int minEfficiency, int maxEfficiency, int max) {
         this.type = type;
+        this.max = max;
         this.minEfficiency = minEfficiency;
         this.maxEfficiency = maxEfficiency;
     }
@@ -335,6 +337,7 @@ class SlotsI implements Serializable {
     public int getMaxEfficiency() {
         return maxEfficiency;
     }
+    public int getMax() { return max;}
 }
 
 class EnhanceValue implements Serializable {

@@ -2,7 +2,10 @@ package com.gruntultra.azurlaneinfo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -72,6 +75,14 @@ public class SingleShipView extends AppCompatActivity {
         skinView = (ListView) findViewById(R.id.skinView);
         SkinAdapter sAdapter = new SkinAdapter(this,R.layout.adapter_view_skin_layout, ship.getSkins());
         skinView.setAdapter(sAdapter);
+        skinView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(SingleShipView.this, SkinView.class);
+                intent.putExtra("urlImg",ship.getSkins().get(i).getImage());
+                startActivity(intent);
+            }
+        });
     }
 
     private ArrayList<BarEntry> dataValues() {
