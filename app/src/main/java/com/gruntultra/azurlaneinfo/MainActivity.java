@@ -3,7 +3,6 @@ package com.gruntultra.azurlaneinfo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +12,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     Button update;
+    Button imgUpdate;
     ImageButton shipView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         fetchData updateStart = new fetchData((getBaseContext()));
         updateStart.execute();
         update = (Button) findViewById(R.id.updateButton);
+        imgUpdate = (Button) findViewById(R.id.updateImageButton);
         shipView = (ImageButton) findViewById(R.id.shipView);
         update.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +33,19 @@ public class MainActivity extends AppCompatActivity {
                 //update
             }
         });
+
+        imgUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getBaseContext(), "Downloading images...", Toast.LENGTH_SHORT).show();
+
+                downloadImg updateImg = new downloadImg(getBaseContext());
+                updateImg.loadImage();
+                Toast.makeText(getBaseContext(), "Images Done", Toast.LENGTH_SHORT).show();
+                //update
+            }
+        });
+
 
         shipView.setOnClickListener(new View.OnClickListener() {
             @Override
