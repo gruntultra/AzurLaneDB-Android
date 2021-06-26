@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getBaseContext(), "Downloading...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), "Downloading....", Toast.LENGTH_SHORT).show();
                 fetchData update = new fetchData(getBaseContext());
                 update.execute();
 
