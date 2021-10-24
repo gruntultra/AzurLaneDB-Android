@@ -16,7 +16,7 @@ public class Ship implements Serializable {
     private String nationality;
     private String hullType;
     private String thumbnail;
-    private Stars stars;
+    private int stars;
     private Stats stats;
     private ArrayList<Slots> slots;
     private Object enhanceValue;
@@ -35,7 +35,7 @@ public class Ship implements Serializable {
 
 
     public Ship(String wikiUrl, String id, Names names, String mClass, String nationality,
-                String hullType, String thumbnail, Stars stars, Stats stats, ArrayList<Slots> slots,
+                String hullType, String thumbnail, int stars, Stats stats, ArrayList<Slots> slots,
                 Object enhanceValue, Object scrapValue, ArrayList<Skills> skills, ArrayList<Skins> skins,
                 ArrayList<GalleryItem> gallery, ArrayList<ArrayList<String>> limitBreaks, FleetTech fleetTech, boolean retrofit,
                 String retrofitId, RetrofitProjects retrofitProjects, Construction construction,
@@ -89,7 +89,7 @@ public class Ship implements Serializable {
         return thumbnail;
     }
 
-    public Stars getStars() {
+    public int getStars() {
         return stars;
     }
 
@@ -151,22 +151,22 @@ class Names implements Serializable {
 
 }
 
-class Stars implements Serializable{
-    private String stars;
-    private int value;
-
-    public Stars(String stars, int value) {
-        this.stars = stars;
-        this.value = value;
-    }
-
-    public String getStars() {
-        return stars;
-    }
-    public int getValue() {
-        return value;
-    }
-}
+//class Stars implements Serializable{
+//    private String stars;
+//    private int value;
+//
+//    public Stars(String stars, int value) {
+//        this.stars = stars;
+//        this.value = value;
+//    }
+//
+//    public String getStars() {
+//        return stars;
+//    }
+//    public int getValue() {
+//        return value;
+//    }
+//}
 
 class Stats implements Serializable{
     private StatsV baseStats;
